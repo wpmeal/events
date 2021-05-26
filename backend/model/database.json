@@ -1,0 +1,59 @@
+{
+  "staff": [
+    {
+      "username": "Ada",
+      "password": "pwd123",
+      "id": "hFGlJMzZTKbBuPJYTAsJH"
+    },
+    {
+      "username": "Chris",
+      "password": "pwd123",
+      "id": "_DW-mZnKlSyhlILuRn-YY"
+    }
+  ],
+  "events": [
+    {
+      "id": "1",
+      "title": "Event 1",
+      "desc": "event desc",
+      "date": "2021-06-22 14:30",
+      "publisher": "John M",
+      "price": 66,
+      "currency": "kr",
+      "availableBiljeter": 33,
+      "Biljeter": [
+        {
+          "id": "_DW-mZnKlSyhlILuRn-qwewqe",
+          "verify": true
+        },
+        "SGLZiRnqEFjfevtKLRxVu",
+        {
+          "id": "KUzu7f4hdSd9AkCFX5Zxe",
+          "verify": "0"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Event 2",
+      "desc": "event desc",
+      "date": "2021-06-22 14:30",
+      "publisher": "John M",
+      "price": 66,
+      "currency": "kr",
+      "availableBiljeter": 33,
+      "Biljeter": []
+    },
+    {
+      "id": "3",
+      "title": "Event 3",
+      "desc": "event desc",
+      "date": "2021-06-22 14:30",
+      "publisher": "John M",
+      "price": 66,
+      "currency": "kr",
+      "availableBiljeter": 33,
+      "Biljeter": []
+    }
+  ]
+}
