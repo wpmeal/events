@@ -1,51 +1,68 @@
 const { nanoid } = require('nanoid');
 
-const { isBiljetAvailable,  generateBjljet, getAllevents, verifyEventBiljett
+const { isBiljetAvailable,  generateBiljett, getAllEvents, verifyEventBiljett
      } = require('../model/operations');
 
 
-function EvntBestallning(request, response) {
+function EventBestallning(request, response) {
+   let result = null;
+    try {
 
     const eventId = request.params.id;
 
     console.log("Event ID" +  eventId);
 
-    const isAvailable = isBiljetAvailable(eventId);
+    const isBjltAvailable = isBiljetAvailable(eventId);
 
-    console.log("Is tickt available"+ isAvailable);
+    console.log("Is ticket available: "+ isBjltAvailable);
 
-    if(isAvailable){
-       // const biljetId = nanoid();
-        const biljetId = generateBjljet(eventId);
+        let biljetId = false;
+        // keep try until it genaretes a unique ticket number
+         while(!biljetId){
+         biljetId = generateBiljett(eventId);
+         }
+          result = biljetId;
 
-        if(biljetId){
-
-            response.json({biljetId: biljetId})
-
-        }else {
-
-            response.json({biljetId: ""})
-
-        }
+    }catch(e){
+        result = {
+            "name": e.name,
+            "message": e.message
+        };
     }
+
+    response.json(result);
 }
 
 function getAllEventsCont(request, response) {
+    let result = null;
+   
+    try {
+        result = getAllEvents();
+    }catch(e){
+        result = {
+            "name": e.name,
+            "message": e.message
+        };
+    }
 
-    const allEvents = getAllevents();
-
-
-    response.json(allEvents);
+    response.json(result);
 
 
    
 }
 function verifyBiljet(request, response) {
     const biljetId = request.params.id;
+    let result = null;
 
+    try{
+    result = verifyEventBiljett(biljetId);    
 
-    const result = verifyEventBiljett(biljetId);
-
+    }catch(e){
+        result = {
+            "name": e.name,
+            "message": e.message
+        };
+    }
 
     response.json(result);
 
@@ -54,7 +71,7 @@ function verifyBiljet(request, response) {
 }
 
 
-module.exports.EvntBestallning = EvntBestallning;
+module.exports.EventBestallning = EventBestallning;
 module.exports.getAllEventsCont = getAllEventsCont;
 module.exports.verifyBiljet = verifyBiljet;
 

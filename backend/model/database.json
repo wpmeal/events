@@ -20,18 +20,7 @@
       "publisher": "John M",
       "price": 66,
       "currency": "kr",
-      "availableBiljeter": 33,
-      "Biljeter": [
-        {
-          "id": "_DW-mZnKlSyhlILuRn-qwewqe",
-          "verify": true
-        },
-        "SGLZiRnqEFjfevtKLRxVu",
-        {
-          "id": "KUzu7f4hdSd9AkCFX5Zxe",
-          "verify": "0"
-        }
-      ]
+      "availableBiljeter": 9
     },
     {
       "id": "2",
@@ -41,8 +30,7 @@
       "publisher": "John M",
       "price": 66,
       "currency": "kr",
-      "availableBiljeter": 33,
-      "Biljeter": []
+      "availableBiljeter": 33
     },
     {
       "id": "3",
@@ -52,8 +40,44 @@
       "publisher": "John M",
       "price": 66,
       "currency": "kr",
-      "availableBiljeter": 33,
-      "Biljeter": []
+      "availableBiljeter": 33
+    }
+  ],
+  "Biljeter": [
+    {
+      "id": "oxaCYakDfClGhO2pTnkBN",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "BVEAtKmtr5uliMPhIHEoV",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "f-kf-OigDraSjJkpe-6sF",
+      "eventId": "2",
+      "verify": "0"
+    },
+    {
+      "id": "H0B7fvfQ-5-osByfuDJPm",
+      "eventId": "2",
+      "verify": "0"
+    },
+    {
+      "id": "qMj5ffPrLrNsvFkOuwMro",
+      "eventId": "2",
+      "verify": "0"
+    },
+    {
+      "id": "rzyw2OQzWI67rDUD56tVs",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "4G_21yixgeWhURBUxe1d0",
+      "eventId": "1",
+      "verify": "0"
     }
   ]
 }

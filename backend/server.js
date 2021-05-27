@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const app = express();
 
+
 //const { initiateDatabase, createAccount, 
 //  checkCredentials, addOrderToUser } = require('./model/operations');
 //const { user } = require('./middleware/auth');

@@ -5,6 +5,7 @@ const adapter = new FileSync('model/database.json');
 const database = lowdb(adapter);
 
 
+
 //function initiateDatabase() {
  // database.defaults({ users:[] }).write();
 //}
@@ -21,46 +22,104 @@ function checkCredentials(credentials) {
 function getUserByUsername(username) {
   return database.get('staff').find({ username: username }).value();
 }
-function getAllevents() {
-  return database.get('events')
-      .value();
+
+
+function getAllEvents() {
+  const events =  database.get('events').value();
+
+  if(!events){
+    throw Error('Ingen evenmang hittades');
+  }
+
+  return events;
 }
 
 function verifyEventBiljett(BiljetNum ) {
-   const isverified = 
-   database.get('events').get('Biljeter').find({ id: BiljetNum}).get('verify').value();
+  //console.log("BiljetNum: "+ BiljetNum);
+  //try {
+  const Biljet = database.get('Biljeter').find({ id: BiljetNum});
 
-    console.log("isverified: "+ isverified);
-/*
-    if(!isverified){
-      database.get('events').find({ id: eventId})
-      .get('Biljeter').find({ id: BiljetNum})
-      .assign({ 'verify': '1' })
-      .write();
-    } */
-}
+  if(!Biljet.value()){
+  throw new Error("Biljet finns inte!");
+  }
+   const isVerified =  Biljet.get('verify').value();
+   
+   console.log("isverified: "+ isVerified);
+   
+
+    if(isVerified == "1"){
+      throw new Error("Biljet redan verified!");
+    } 
+
+    const verifiedBiljet =  Biljet.assign({ 'verify': '1' }).write();
+
+    return verifiedBiljet;
+
+  }
+
+    
+
 function isBiljetAvailable(eventId){
-  console.log("eventId"+eventId);
-  const availableBiljeter = database.get('events')
+  let countBookedBiljeter = 0;
+  
+  const countAvailableBiljeter = database.get('events')
   .find({ id: eventId})
   .get('availableBiljeter')
   .value();
-  console.log(availableBiljeter);
 
-  //const BiljeterGNumber = database.get('events')
-  //.find({ id: eventId}).get('Biljeter');
+  if(!countAvailableBiljeter){
+   throw new Error("kunna inte hitta available Biljeter!");  
+  }
 
-  //console.log(BiljeterGNumber.values());
 
-  return availableBiljeter > 1;
+  console.log("Number of available Biljeter: "+ countAvailableBiljeter);
+
+  const bookedBiljeter = database.get('Biljeter')
+  .filter({ eventId: eventId}).value();
+
+  // if(!bookedBiljeter){
+  //  throw new Error("kunna inte hitta booked Biljeter!");  
+  // }
+  if(bookedBiljeter){
+ countBookedBiljeter = bookedBiljeter.length;
+  }
+
+  console.log("Booked Biljeter: " +countBookedBiljeter);
+
+  const isBiljettAvailble = countAvailableBiljeter > countBookedBiljeter;
+
+  if(!isBiljettAvailble){
+    throw new Error("Den Evenmang är Fully Bokad!");
+  }
+
+  return isBiljettAvailble;
 
 }
-function generateBjljet(eventId){
+function generateBiljett(eventId){
+  let generatedBiljett = false;
   const biljetId = nanoid();
-  const BiljeterGNumber = database.get('events')
-  .find({ id: eventId}).get('Biljeter').push({id : biljetId, verify: "0"}).write();
+  // const biljetId = "nrFJ5i4iKmWnOupjg22jY";
 
-  return BiljeterGNumber;
+  // get samma biljett från db
+  const BiljettNumber = database.get('Biljeter')
+  .find({ id: biljetId});
+  
+  // console.log(BiljettNumber.value());
+  //push({id : biljetId, verify: "0"}).write();
+
+  // test if 
+  if(!BiljettNumber.value()){
+    generatedBiljett =  database.get('Biljeter').push({
+    id: biljetId,
+    eventId: eventId,
+    verify: "0"
+   }).write();
+  }
+
+  return generatedBiljett;
+
+
+ 
 
 }
 
@@ -68,7 +127,7 @@ function generateBjljet(eventId){
 // exports.createAccount = createAccount;
 exports.checkCredentials = checkCredentials;
 exports.verifyEventBiljett = verifyEventBiljett;
-exports.generateBjljet = generateBjljet;
+exports.generateBiljett = generateBiljett;
 exports.isBiljetAvailable = isBiljetAvailable;
-exports.getAllevents = getAllevents;
+exports.getAllEvents = getAllEvents;
 exports.getUserByUsername = getUserByUsername;
