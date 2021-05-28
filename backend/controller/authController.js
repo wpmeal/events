@@ -2,34 +2,45 @@ const { nanoid } = require('nanoid');
 const jwt = require('jsonwebtoken');
 
 const { checkCredentials, getUserByUsername
-         } = require('../model/operations');
+} = require('../model/operations');
 
-function login(request, response) {
-  const credentials = request.body;
+// const { comparePassword } = require('../utility/bcrypt');
 
-  const isAMatch = checkCredentials(credentials);
+ async function login(request, response) {
+  let result = null;
+  try {
 
-  let result = { success: false };
+    const credentials = request.body;
 
-  if (isAMatch) {
-    const user = getUserByUsername(credentials.username);
-    console.log('User', user);
+    const credentialsDB = await checkCredentials(credentials); 
 
-    const token = jwt.sign({ id: user.id}, 'a1b1c1', {
+    if(!credentialsDB)
+    throw new Error("Fel användarnamn/lösenord!");
+
+    console.log('User', credentialsDB.username);
+
+    const token = jwt.sign({ id: credentialsDB.id }, 'a1b1c1', {
       expiresIn: 600 //Går ut om 10 minuter 
     });
 
-    result.success = true;
-    result.token = token;
+    //result.success = true;
+    result = token;
+    //}
+  } catch (e) {
+    result = {
+      "name": e.name,
+      "message": e.message
+    };
   }
-
   response.json(result);
 }
 
 function getLoginStatus(request, response) {
+  let result = null;
+   try {
   const token = request.header('Authorization').replace('Bearer ', '');
 
-  let result = { loggedIn: false };
+  //let result = { loggedIn: false };
 
   if (token) {
     const tokenVerified = jwt.verify(token, 'a1b1c1');
@@ -37,9 +48,15 @@ function getLoginStatus(request, response) {
     console.log('JWT Verify:', tokenVerified);
 
     if (tokenVerified) {
-      result.loggedIn = true;
+      result = true;
     }
   }
+}catch(e){
+  result = {
+    "name": e.name,
+    "message": e.message
+  };
+}
 
   response.json(result);
 }

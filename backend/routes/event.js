@@ -10,7 +10,7 @@ router.get('/', getAllEventsCont);
 
 router.post('/book/:id', EventBestallning);
 
-router.post('/verify/:id', verifyBiljet);
+router.post('/verify/', user, verifyBiljet);
 
 
 //router.delete('/remove', user, removeAccount);

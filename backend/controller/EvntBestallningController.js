@@ -51,7 +51,9 @@ function getAllEventsCont(request, response) {
    
 }
 function verifyBiljet(request, response) {
-    const biljetId = request.params.id;
+    const biljetId = request.body.biljetId;
+    console.log("biljetId: "+ biljetId);
+
     let result = null;
 
     try{

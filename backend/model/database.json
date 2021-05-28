@@ -2,12 +2,12 @@
   "staff": [
     {
       "username": "Ada",
-      "password": "pwd123",
+      "password": "$2b$10$zAaxd5Jk9xa0ARtnygdI5ue3Z/zmHNbwPCBkrP79.rLtuuybNCf5e",
       "id": "hFGlJMzZTKbBuPJYTAsJH"
     },
     {
       "username": "Chris",
-      "password": "pwd123",
+      "password": "$2b$10$WjJqHWx1ZukAu7yntZWXPO9PfSl1ZAExZDoxGsaLLAJoPWaOKhMKm",
       "id": "_DW-mZnKlSyhlILuRn-YY"
     }
   ],
@@ -47,12 +47,12 @@
     {
       "id": "oxaCYakDfClGhO2pTnkBN",
       "eventId": "1",
-      "verify": "0"
+      "verify": "1"
     },
     {
       "id": "BVEAtKmtr5uliMPhIHEoV",
       "eventId": "1",
-      "verify": "0"
+      "verify": "1"
     },
     {
       "id": "f-kf-OigDraSjJkpe-6sF",
@@ -76,6 +76,31 @@
     },
     {
       "id": "4G_21yixgeWhURBUxe1d0",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "kxPtr0qlCPC8Fy_P2dWFd",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "w3BqAsqYNk49ud7_jKYoD",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "vRMUG_srEpJ_riksrRcvv",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "3yIZzi_Cg_vSkC9pMct4t",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "v1asIeJUdDdhGxq6EXmyQ",
       "eventId": "1",
       "verify": "0"
     }

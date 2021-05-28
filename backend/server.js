@@ -15,6 +15,10 @@ app.use(express.json());
 const authRouter = require('./routes/auth');
 const eventRouter = require('./routes/event');
 
+//const hashPassword = require('./utility/bcrypt');
+
+//hashPassword();
+
 app.use('/api/auth', authRouter);
 app.use('/api/event', eventRouter);
 

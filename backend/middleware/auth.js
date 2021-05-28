@@ -1,18 +1,23 @@
 const jwt = require('jsonwebtoken');
+const { refreshToken } = require('../utility/bcrypt');
 
-function user(request, response, next) {
+
+ function user(request, response, next) {
   try {
     const token = request.header('Authorization').replace('Bearer ', '');
     console.log(token);
+    //console.log("BBID"+ request.body.biljetId);
     const data = jwt.verify(token, 'a1b1c1');
     console.log('User middleware', data);
 
-    if(!data) {
-      throw Error();
-    } else {
+   //if(!data.id) {
+    //  console.log('User middleware', data);
+    // throw Error();
+    //} else {
       request.userId = data.id;
+      //request.token = refreshToken(data.id);
       next();
-    }
+    //}
 
   } catch(error) {
     response.status(401).json({ success: false, message: 'Permission denied' });
