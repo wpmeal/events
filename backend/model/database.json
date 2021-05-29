@@ -20,7 +20,8 @@
       "publisher": "John M",
       "price": 66,
       "currency": "kr",
-      "availableBiljeter": 9
+      "availableBiljeter": 9,
+      "biljetterKvar": 0
     },
     {
       "id": "2",
@@ -30,7 +31,8 @@
       "publisher": "John M",
       "price": 66,
       "currency": "kr",
-      "availableBiljeter": 33
+      "availableBiljeter": 33,
+      "biljetterKvar": 24
     },
     {
       "id": "3",
@@ -40,7 +42,8 @@
       "publisher": "John M",
       "price": 66,
       "currency": "kr",
-      "availableBiljeter": 33
+      "availableBiljeter": 33,
+      "biljetterKvar": 31
     }
   ],
   "Biljeter": [
@@ -102,6 +105,51 @@
     {
       "id": "v1asIeJUdDdhGxq6EXmyQ",
       "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "2PE5go0Gsl8G_J0cgBUUv",
+      "eventId": "2",
+      "verify": "0"
+    },
+    {
+      "id": "y2E2yWOIKq4ck9pj1cTDU",
+      "eventId": "2",
+      "verify": "0"
+    },
+    {
+      "id": "wzn2Pn6cm0SaJDqKnk3iZ",
+      "eventId": "2",
+      "verify": "0"
+    },
+    {
+      "id": "Gems72JCHh11F7-5_96er",
+      "eventId": "2",
+      "verify": "0"
+    },
+    {
+      "id": "1sGPsmXd9RW3ZHHKu05lD",
+      "eventId": "2",
+      "verify": "0"
+    },
+    {
+      "id": "Zv6Ge5EBxmQjQBGipk-9z",
+      "eventId": "2",
+      "verify": "0"
+    },
+    {
+      "id": "nABnSrEGHW6922_v2Uc6z",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "eMlMutGisr6UqVpY6yz_h",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "zNLNZ9S4coIqKAyvs-xlc",
+      "eventId": "3",
       "verify": "0"
     }
   ]

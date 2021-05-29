@@ -7,9 +7,21 @@ const database = lowdb(adapter);
 const { comparePassword } = require('../utility/bcrypt');
 
 
+function getCredentialsDB(credentials){
+  const credentialsDb = database.get('staff')
+  .find({ username: credentials.username })
+  .value();
+
+if (!credentialsDb) {
+  throw new Error("Fel användarnamn/lösenord!");
+}
+return credentialsDb;
+}
+
+
 async function checkCredentials(credentials) {
   let result = false;
-
+/*
   const credentialsDb = database.get('staff')
     .find({ username: credentials.username })
     .value();
@@ -17,6 +29,8 @@ async function checkCredentials(credentials) {
   if (!credentialsDb) {
     throw new Error("Fel användarnamn/lösenord!");
   }
+  */
+  const credentialsDb = getCredentialsDB(credentials);
 
   const hashedDbPassword = credentialsDb.password;
 
@@ -28,11 +42,11 @@ async function checkCredentials(credentials) {
 
   console.log("Compare Password: " + comparePasswordResult);
 
-  if (comparePasswordResult) {
-    result = credentialsDb;
+  if (!comparePasswordResult) {
+    throw new Error("Fel användarnamn/lösenord!");
   }
 
-  return result;
+  return result = credentialsDb;;
 
 }
 
@@ -53,14 +67,23 @@ function getAllEvents() {
   return events;
 }
 
-function verifyEventBiljett(BiljetNum) {
-  console.log("BiljetNum: "+ BiljetNum);
-  //try {
+function getBiljett(BiljetNum){
   const Biljet = database.get('Biljeter').find({ id: BiljetNum });
-
   if (!Biljet.value()) {
     throw new Error("Biljet finns inte!");
   }
+  return Biljet.value();
+}
+function verifyEventBiljett(BiljetNum) {
+  console.log("BiljetNum: " + BiljetNum);
+  //try {
+  //const Biljet = database.get('Biljeter').find({ id: BiljetNum });
+
+  //if (!Biljet.value()) {
+  //  throw new Error("Biljet finns inte!");
+  //}
+  const Biljet = getBiljett(BiljetNum);
+
   const isVerified = Biljet.get('verify').value();
 
   console.log("isverified: " + isVerified);
@@ -76,10 +99,7 @@ function verifyEventBiljett(BiljetNum) {
 
 }
 
-
-
-function isBiljetAvailable(eventId) {
-  let countBookedBiljeter = 0;
+function getTotalAvailableBiljetter(eventId) {
 
   const countAvailableBiljeter = database.get('events')
     .find({ id: eventId })
@@ -93,19 +113,31 @@ function isBiljetAvailable(eventId) {
 
   console.log("Number of available Biljeter: " + countAvailableBiljeter);
 
+  return countAvailableBiljeter;
+}
+
+function countBookedBiljeter(eventId) {
+  let countBookedBiljeter = 0;
+
   const bookedBiljeter = database.get('Biljeter')
     .filter({ eventId: eventId }).value();
 
-  // if(!bookedBiljeter){
-  //  throw new Error("kunna inte hitta booked Biljeter!");  
-  // }
   if (bookedBiljeter) {
     countBookedBiljeter = bookedBiljeter.length;
   }
 
   console.log("Booked Biljeter: " + countBookedBiljeter);
 
-  const isBiljettAvailble = countAvailableBiljeter > countBookedBiljeter;
+  return countBookedBiljeter;
+
+}
+function isBiljetAvailable(eventId) {
+
+  const NumOfAvailableBiljeter = getTotalAvailableBiljetter(eventId);
+
+  const NumOfbookedBiljeter = countBookedBiljeter(eventId);
+
+  const isBiljettAvailble = NumOfAvailableBiljeter > NumOfbookedBiljeter;
 
   if (!isBiljettAvailble) {
     throw new Error("Den Evenmang är Fully Bokad!");
@@ -114,20 +146,45 @@ function isBiljetAvailable(eventId) {
   return isBiljettAvailble;
 
 }
-function generateBiljett(eventId) {
+
+function numOfBiljetterKvar(eventId) {
+
+  let numOfBiljetterKvar = null;
+
+  const NumOfAvailableBiljeter = getTotalAvailableBiljetter(eventId);
+
+  const NumOfbookedBiljeter = countBookedBiljeter(eventId);
+
+  numOfBiljetterKvar = NumOfAvailableBiljeter - NumOfbookedBiljeter;
+
+  return numOfBiljetterKvar;
+
+}
+function isBiljtInDb(biljetId){
+  let result  = false;
+  const BiljettNumber = database.get('Biljeter')
+  .find({ id: biljetId });  
+  if (BiljettNumber.value()) {
+    result = true;
+  }
+  return result;
+}
+ function generateBiljett(eventId) {
   let generatedBiljett = false;
-  const biljetId = nanoid();
-  // const biljetId = "nrFJ5i4iKmWnOupjg22jY";
+  const biljetId =  nanoid();
+ // const biljetId = "1sGPsmXd9RW3ZHHKu05lD";
 
   // get samma biljett från db
-  const BiljettNumber = database.get('Biljeter')
-    .find({ id: biljetId });
+  //const BiljettNumber = database.get('Biljeter')
+   // .find({ id: biljetId });
 
   // console.log(BiljettNumber.value());
   //push({id : biljetId, verify: "0"}).write();
 
   // test if 
-  if (!BiljettNumber.value()) {
+  const isBiljettNumRedanIDB = isBiljtInDb(biljetId);
+
+  if (!isBiljettNumRedanIDB) {
     generatedBiljett = database.get('Biljeter').push({
       id: biljetId,
       eventId: eventId,
@@ -150,3 +207,4 @@ exports.generateBiljett = generateBiljett;
 exports.isBiljetAvailable = isBiljetAvailable;
 exports.getAllEvents = getAllEvents;
 exports.getUserByUsername = getUserByUsername;
+exports.numOfBiljetterKvar = numOfBiljetterKvar;

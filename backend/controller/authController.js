@@ -14,8 +14,8 @@ const { checkCredentials, getUserByUsername
 
     const credentialsDB = await checkCredentials(credentials); 
 
-    if(!credentialsDB)
-    throw new Error("Fel användarnamn/lösenord!");
+    //if(!credentialsDB)
+    //throw new Error("Fel användarnamn/lösenord!");
 
     console.log('User', credentialsDB.username);
 

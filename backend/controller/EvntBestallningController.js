@@ -1,6 +1,6 @@
 const { nanoid } = require('nanoid');
 
-const { isBiljetAvailable,  generateBiljett, getAllEvents, verifyEventBiljett
+const { isBiljetAvailable,  generateBiljett, getAllEvents, verifyEventBiljett, numOfBiljetterKvar
      } = require('../model/operations');
 
 
@@ -36,8 +36,15 @@ function EventBestallning(request, response) {
 function getAllEventsCont(request, response) {
     let result = null;
    
-    try {
+    try {      
         result = getAllEvents();
+        result.forEach(el => {
+      //  console.log(el.id);     
+            
+        const num = numOfBiljetterKvar(el.id);
+        el.biljetterKvar = num;
+
+        });
     }catch(e){
         result = {
             "name": e.name,

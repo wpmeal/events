@@ -8,7 +8,7 @@ router.get('/', getAllEventsCont);
 
 //router.get('/all', user, EvntBestallning);
 
-router.post('/book/:id', EventBestallning);
+router.get('/book/:id', EventBestallning);
 
 router.post('/verify/', user, verifyBiljet);
 
