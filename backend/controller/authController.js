@@ -36,7 +36,7 @@ const { checkCredentials, getUserByUsername
 }
 
 function getLoginStatus(request, response) {
-  let result = null;
+  let result = false;
    try {
   const token = request.header('Authorization').replace('Bearer ', '');
 

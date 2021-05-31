@@ -35,11 +35,12 @@ function EventBestallning(request, response) {
 
 function getAllEventsCont(request, response) {
     let result = null;
+    console.log("getAllEventsCont");     
+
    
     try {      
         result = getAllEvents();
         result.forEach(el => {
-      //  console.log(el.id);     
             
         const num = numOfBiljetterKvar(el.id);
         el.biljetterKvar = num;

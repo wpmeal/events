@@ -21,7 +21,7 @@
       "price": 66,
       "currency": "kr",
       "availableBiljeter": 9,
-      "biljetterKvar": 0
+      "biljetterKvar": 7
     },
     {
       "id": "2",
@@ -31,8 +31,8 @@
       "publisher": "John M",
       "price": 66,
       "currency": "kr",
-      "availableBiljeter": 33,
-      "biljetterKvar": 24
+      "availableBiljeter": 2,
+      "biljetterKvar": 0
     },
     {
       "id": "3",
@@ -43,112 +43,52 @@
       "price": 66,
       "currency": "kr",
       "availableBiljeter": 33,
-      "biljetterKvar": 31
+      "biljetterKvar": 30
     }
   ],
   "Biljeter": [
     {
-      "id": "oxaCYakDfClGhO2pTnkBN",
-      "eventId": "1",
-      "verify": "1"
-    },
-    {
-      "id": "BVEAtKmtr5uliMPhIHEoV",
-      "eventId": "1",
-      "verify": "1"
-    },
-    {
-      "id": "f-kf-OigDraSjJkpe-6sF",
+      "id": "nHa_tpnGlJiNDnhqIFN83",
       "eventId": "2",
       "verify": "0"
     },
     {
-      "id": "H0B7fvfQ-5-osByfuDJPm",
+      "id": "L0JY6c1C0KBNYM37hqX56",
       "eventId": "2",
       "verify": "0"
     },
     {
-      "id": "qMj5ffPrLrNsvFkOuwMro",
-      "eventId": "2",
-      "verify": "0"
-    },
-    {
-      "id": "rzyw2OQzWI67rDUD56tVs",
+      "id": "nNEqRA_Rab3A0nco-Jn59",
       "eventId": "1",
       "verify": "0"
     },
     {
-      "id": "4G_21yixgeWhURBUxe1d0",
-      "eventId": "1",
-      "verify": "0"
-    },
-    {
-      "id": "kxPtr0qlCPC8Fy_P2dWFd",
-      "eventId": "1",
-      "verify": "0"
-    },
-    {
-      "id": "w3BqAsqYNk49ud7_jKYoD",
-      "eventId": "1",
-      "verify": "0"
-    },
-    {
-      "id": "vRMUG_srEpJ_riksrRcvv",
-      "eventId": "1",
-      "verify": "0"
-    },
-    {
-      "id": "3yIZzi_Cg_vSkC9pMct4t",
-      "eventId": "1",
-      "verify": "0"
-    },
-    {
-      "id": "v1asIeJUdDdhGxq6EXmyQ",
-      "eventId": "1",
-      "verify": "0"
-    },
-    {
-      "id": "2PE5go0Gsl8G_J0cgBUUv",
-      "eventId": "2",
-      "verify": "0"
-    },
-    {
-      "id": "y2E2yWOIKq4ck9pj1cTDU",
-      "eventId": "2",
-      "verify": "0"
-    },
-    {
-      "id": "wzn2Pn6cm0SaJDqKnk3iZ",
-      "eventId": "2",
-      "verify": "0"
-    },
-    {
-      "id": "Gems72JCHh11F7-5_96er",
-      "eventId": "2",
-      "verify": "0"
-    },
-    {
-      "id": "1sGPsmXd9RW3ZHHKu05lD",
-      "eventId": "2",
-      "verify": "0"
-    },
-    {
-      "id": "Zv6Ge5EBxmQjQBGipk-9z",
-      "eventId": "2",
-      "verify": "0"
-    },
-    {
-      "id": "nABnSrEGHW6922_v2Uc6z",
+      "id": "Eoak3jHKwnzNmGh1d7prd",
       "eventId": "3",
       "verify": "0"
     },
     {
-      "id": "eMlMutGisr6UqVpY6yz_h",
+      "id": "v8QTwnO1caSkri-2BFRwh",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "dxDVPkH9xAQMKG6rJ6Yyr",
       "eventId": "3",
       "verify": "0"
     },
     {
-      "id": "zNLNZ9S4coIqKAyvs-xlc",
+      "id": "A-wMq0uGU0pVTQGmnqnbn",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "fdNxyMcBxA0H8dYTlYsF2",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "XcNfPEk5s-U6oj5NXE5y2",
       "eventId": "3",
       "verify": "0"
     }

@@ -5,8 +5,8 @@ class Event {
     this.authUser = new AuthUser();
 
   }
-  verifyBiljett = async (biljetId) => {
-    const token = this.authUser.getToken();
+  verifyBiljett =  (biljetId) => {
+    const token =  this.authUser.getToken();
     console.log(token);
     const biljetIdObj = {
       biljetId: biljetId
@@ -19,22 +19,14 @@ class Event {
       'Content-Type': 'application/json'
     };
     this.authUser.initConnection.fetchInfo.requestBody = biljetIdObj;
-    const data = await this.authUser.initConnection.connectTopApi();
+    
+    const data = this.authUser.initConnection.connectTopApi();
 
-   /* const response = await fetch('http://localhost:8000/api/event/verify/', {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
-      method: 'POST',
-      body: JSON.stringify(obj),
-    });
+   // console.log(data);
 
-    const data = await response.json();
-    */
+     return data;
 
-    console.log(data);
-
+ 
     // await saveToken(data.token);
   }
 
@@ -53,24 +45,11 @@ class Event {
     }; */
     // this.authUser.initConnection.fetchInfo.requestBody = biljetIdObj;
     const data = await this.authUser.initConnection.connectTopApi();
-    console.log(data);
 
+
+    return data;
  
-    /*
-    const response = await fetch(`http://localhost:8000/api/event/book/${eventId}`, {
-      headers: {
-        //      'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
-      method: 'POST',
-      //  body: JSON.stringify(obj),
-    });
-    const data = await response.json();
-
-    console.log(data);
-
-    // await saveToken(data.token);
-    */
+  
   }
 
 
@@ -81,18 +60,20 @@ class Event {
   // getEvents();
 
 
-  renderItem = async (Data = '', refresh = true) => {
+  renderItem =  (Data = '', refresh = true) => {
+
+    let container  = document.querySelector("#eventsListContainer");
 
     // clean the dom
    // document.querySelector("main").innerHTML = "";
 
-    // check if we have en empty data items 
-    if (Data.length == 0) {
-        document.querySelector("main").innerHTML = '<b>No Event Found!</b>';
+    // check if we have an error response
+    if (Data.name && Data.message) {
+      container.innerHTML = `<b>${Data.message}</b>`;
     }
 
     // otherwise loop through our data array 
-    else await Data.forEach(el => {
+    else Data.forEach(el => {
 
         // create an article html obj that will represent each items/product to the client/browser
         const articleHtmlObj = document.createElement("article");
@@ -112,9 +93,10 @@ class Event {
         </p>
         <section>
             <p>${el.biljetterKvar} biljeter Kvar</p>
-            <button id="book">
+            <button class="book" onclick="bookEventHandler(${el.id})">
                 Boka for ${el.price} &nbsp;  ${el.currency}
             </button>
+            <input type="hidden" name="eventId" value="${el.id}" />
         </section>
   `;
 
@@ -123,7 +105,7 @@ class Event {
         articleHtmlObj.innerHTML = innerHtml;
 
         // append each article html item to dom
-        document.querySelector("main").appendChild(articleHtmlObj);
+        container.appendChild(articleHtmlObj);
     })
 
 }
@@ -135,13 +117,22 @@ getEvents = async () => {
 
   const data = await this.authUser.initConnection.connectTopApi();
   console.log(data);
-  this.renderItem(data);
+  ///if(result.message){
+
+ // }
+ //  else {
+     this.renderItem(data);
+
+  // }
+
+  
   
 }
+
 }
 
 const initEvent = new Event();
 //initEvent.authUser.login("Chris","pwd456");
 //initEvent.verifyBiljett("BVEAtKmtr5uliMPhIHEoV");
 // initEvent.bestallBiljett(1);
- initEvent.getEvents();
+ // initEvent.getEvents();

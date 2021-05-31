@@ -5,12 +5,16 @@ const fs = require('fs');
 const app = express();
 
 
+
+
 //const { initiateDatabase, createAccount, 
 //  checkCredentials, addOrderToUser } = require('./model/operations');
 //const { user } = require('./middleware/auth');
 
 app.use(express.static('../frontend'));
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 
 const authRouter = require('./routes/auth');
 const eventRouter = require('./routes/event');

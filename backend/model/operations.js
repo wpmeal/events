@@ -72,7 +72,7 @@ function getBiljett(BiljetNum){
   if (!Biljet.value()) {
     throw new Error("Biljet finns inte!");
   }
-  return Biljet.value();
+  return Biljet;
 }
 function verifyEventBiljett(BiljetNum) {
   console.log("BiljetNum: " + BiljetNum);
@@ -84,7 +84,11 @@ function verifyEventBiljett(BiljetNum) {
   //}
   const Biljet = getBiljett(BiljetNum);
 
-  const isVerified = Biljet.get('verify').value();
+  console.log(Biljet);
+
+   const isVerified = Biljet.get('verify').value();
+
+  //const isVerified = Biljet.verify;
 
   console.log("isverified: " + isVerified);
 
@@ -92,7 +96,7 @@ function verifyEventBiljett(BiljetNum) {
   if (isVerified == "1") {
     throw new Error("Biljet redan verified!");
   }
-
+  // Biljet.verify = "1";
   const verifiedBiljet = Biljet.assign({ 'verify': '1' }).write();
 
   return verifiedBiljet;
@@ -192,10 +196,11 @@ function isBiljtInDb(biljetId){
     }).write();
   }
 
-  return generatedBiljett;
+  const newGenBiljett = getBiljett(biljetId).value(); 
 
+  console.log(newGenBiljett);
 
-
+  return newGenBiljett;
 
 }
 
