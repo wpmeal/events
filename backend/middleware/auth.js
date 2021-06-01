@@ -22,7 +22,7 @@ const { refreshToken } = require('../utility/bcrypt');
   } catch(e) {
     response.status(401).
     json({
-      "name": "tokenVerifyError",
+      "error": "tokenVerifyError",
       "message": "Permission Denied!"
        });
   }

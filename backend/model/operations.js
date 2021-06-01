@@ -189,6 +189,10 @@ function isBiljtInDb(biljetId){
   const isBiljettNumRedanIDB = isBiljtInDb(biljetId);
 
   if (!isBiljettNumRedanIDB) {
+    // console.log( database.get('events').value());
+   // reset biljetterKvar property from events db
+    database.get('events').find({id : eventId}).assign({biljetterKvar:""}).write();
+
     generatedBiljett = database.get('Biljeter').push({
       id: biljetId,
       eventId: eventId,

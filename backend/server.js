@@ -13,7 +13,10 @@ const app = express();
 
 app.use(express.static('../frontend'));
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+// app.use(express.urlencoded({extended: true}));
+
+// router.use(bodyParser.urlencoded({ extended: false }));
+
 
 
 const authRouter = require('./routes/auth');

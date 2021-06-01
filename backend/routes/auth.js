@@ -8,5 +8,7 @@ router.post('/', login);
 router.get('/loggedin', getLoginStatus);
 
 // router.post('/create', createNewAccount);
+// router.use(bodyParser.urlencoded({ extended: false }));
+
 
 module.exports = router;

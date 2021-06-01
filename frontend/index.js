@@ -21,6 +21,7 @@ if (typeof initEvent == "undefined") {
    
     if(result.id){
         alert("Din Biljett är: "+ result.id);
+        location.reload();
     }else {
         alert(result.message);  
     }

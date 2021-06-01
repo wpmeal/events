@@ -25,6 +25,19 @@ class AuthUser{
     return token;
 
   }
+
+  deleteToken = () => {
+
+  // let result = true
+    // if(sessionStorage.getItem('auth')){
+      
+      sessionStorage.removeItem('auth');
+
+    // }
+
+  //  return result;
+
+  }
   
 login = async (username, password) => {
   //const token = getToken();  
@@ -36,10 +49,11 @@ login = async (username, password) => {
   this.initConnection.fetchInfo.endpoint = 'auth';
   this.initConnection.fetchInfo.requestBody =  credentials;
   this.initConnection.fetchInfo.headers = {
-    'Content-Type': 'application/json',
+   'Content-Type': 'application/json',
     'Accept': 'application/json'
   }
 
+  console.log(credentials);
 
   const data = await this.initConnection.connectTopApi();
  

@@ -21,7 +21,7 @@
       "price": 66,
       "currency": "kr",
       "availableBiljeter": 9,
-      "biljetterKvar": 7
+      "biljetterKvar": ""
     },
     {
       "id": "2",
@@ -42,8 +42,8 @@
       "publisher": "John M",
       "price": 66,
       "currency": "kr",
-      "availableBiljeter": 33,
-      "biljetterKvar": 30
+      "availableBiljeter": 77,
+      "biljetterKvar": 53
     }
   ],
   "Biljeter": [
@@ -90,6 +90,126 @@
     {
       "id": "XcNfPEk5s-U6oj5NXE5y2",
       "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "NflPji1ckDdDbb3PKOBcn",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "uRraaLXaDJIwpwQF0kgKQ",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "wWGJTot3ihbCob3CQXTGO",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "UqFFxwpVXQ-PzV3HON1EF",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "DeV-NQuD-vCGeFqV3FNPl",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "GteH4h65JPOcSH0TIBKJI",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "R8BRcBn_SC3jbAyB3yIZI",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "hHXBDDP9jFdOKtJ3hNO-z",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "65ltn0Pozh3dPnkXG8FRV",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "_PRHan-IObwVhRhMw_nZ4",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "jHr-NaPASxLimSk6AX_Yb",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "f6m5gubu4kuyUFKNYlgSa",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "lEJJrIyU8ivX_PiHpCQNW",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "eHDZa1u5J3amk6MzsYCe0",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "Cqd9KJoRDJ_aIvZl41s76",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "WvgBtZnAUjmCZTKnmnIPq",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "M1cVIuTbHiOxSxRI01ou5",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "VnlDmCGufOb8oE3spL4AL",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "VBQVTcZ6-Gb0QIN0s2Usd",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "zOhEjsy5uICJILKriiypW",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "-fF40FFuvkjqel-9ndnv8",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "nFtRLvV5NU7kZ3_dYeahN",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "qGOZnH9plB-aEjf7nk6Xj",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "yEz-1nujDhHzxonKhoWAJ",
+      "eventId": "1",
       "verify": "0"
     }
   ]

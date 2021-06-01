@@ -43,10 +43,12 @@ class ConnectionClass {
             "method": this.fetchInfo.method,
             "headers": this.fetchInfo.headers
         }
+        console.log(init);
         // add a body to our request only on POST method otherwise it will throw an exception
         if (this.fetchInfo.method == "POST")
             init.body = JSON.stringify(this.fetchInfo.requestBody);
-
+         
+       // console.log(this.fetchInfo.requestBody);    
         // exectute the connection to backedn api 
         const res = await fetch(
             url,

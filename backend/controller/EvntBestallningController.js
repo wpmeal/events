@@ -22,10 +22,11 @@ function EventBestallning(request, response) {
          biljetId = generateBiljett(eventId);
          }
           result = biljetId;
+          // getAllEvents();
 
     }catch(e){
         result = {
-            "name": e.name,
+            "error": e.name,
             "message": e.message
         };
     }
@@ -35,8 +36,6 @@ function EventBestallning(request, response) {
 
 function getAllEventsCont(request, response) {
     let result = null;
-    console.log("getAllEventsCont");     
-
    
     try {      
         result = getAllEvents();
@@ -48,7 +47,7 @@ function getAllEventsCont(request, response) {
         });
     }catch(e){
         result = {
-            "name": e.name,
+            "error": e.name,
             "message": e.message
         };
     }
@@ -69,7 +68,7 @@ function verifyBiljet(request, response) {
 
     }catch(e){
         result = {
-            "name": e.name,
+            "error": e.name,
             "message": e.message
         };
     }

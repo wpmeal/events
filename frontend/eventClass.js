@@ -68,7 +68,7 @@ class Event {
    // document.querySelector("main").innerHTML = "";
 
     // check if we have an error response
-    if (Data.name && Data.message) {
+    if (Data.error && Data.message) {
       container.innerHTML = `<b>${Data.message}</b>`;
     }
 

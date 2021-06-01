@@ -1,4 +1,17 @@
-//const initEvent = undefined;
+
+function displayForm(elDomId = null, show = false){
+    let form = document.querySelector("#"+elDomId);
+    if(show){
+        form.style.display = "block";
+    }else{
+        form.style.display = "none";
+    }
+
+}
+
+// displayForm('staffLoginForm');
+
+// displayForm('verifyBiljett');
 
 if (typeof initEvent == "undefined") {
 
@@ -7,11 +20,14 @@ if (typeof initEvent == "undefined") {
 }
 
 if(initEvent.authUser.getToken()){
-    document.querySelector("#staffLoginForm").style.visibility = "hidden";
-    document.querySelector("#verifyBiljett").style.visibility = "visible";
+    displayForm('staffLoginForm', false);
+    displayForm('verifyBiljett', true);
 }else{
-    document.querySelector("#staffLoginForm").style.visibility = "visible";
-    document.querySelector("#verifyBiljett").style.visibility = "hidden";
+    //console.log(staffLoginForm.);
+    displayForm('staffLoginForm', true);
+    displayForm('verifyBiljett', false);
+
+    // verifyBiljettForm  = "hidden";
 }
 
 
@@ -34,10 +50,14 @@ loginButton.addEventListener("click", async (e) => {
 
     let result = await initEvent.authUser.login(username, password);
 
-    if(!result.name){
+    if(!result.error){
         resultDom.innerHTML = '';
-        document.querySelector("#staffLoginForm").style.visibility = "hidden";
-        document.querySelector("#verifyBiljett").style.visibility = "visible";
+        //staffLoginForm  = "hidden";
+        //verifyBiljettForm  = "visible";
+        displayForm('staffLoginForm', false);
+        displayForm('verifyBiljett', true);
+
+
         await initEvent.authUser.saveToken(result);
      
     }else{
@@ -72,11 +92,18 @@ verifyBiljettButton.addEventListener("click", async (e) => {
 
         resultDom.innerHTML = `<b>Biljett är verifierad</b>`;  
 
-    }else if(result.name == "tokenVerifyError"){
+    }else if(result.error == "tokenVerifyError"){
 
-        document.querySelector("#staffLoginForm").style.visibility = "visible";
-        document.querySelector("#verifyBiljett").style.visibility = "hidden";
-        resultDom.innerHTML = `<b>Please Login first!</b>`;
+        initEvent.authUser.deleteToken();
+        location.reload();
+
+       // staffLoginForm = "visible";
+       // verifyBiljettForm  = "hidden";
+      // displayForm('staffLoginForm', true);
+      // displayForm('verifyBiljett', false);
+
+
+        // resultDom.innerHTML = `<b>Please Login first!</b>`;
     
     }else{
 

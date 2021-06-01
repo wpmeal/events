@@ -36,6 +36,14 @@ main {
 
 }
 
+#staff main {
+    grid-column: auto / span 1;
+    display: block;
+
+
+  
+}
+
 /*
 Main contents of the page
 */
@@ -126,6 +134,15 @@ margin: 0;
     .menu{
        padding: 0 5% 0;
     }
+
+    #staffLoginForm{
+    display: none;
+    }
+
+    #verifyBiljett{
+        display: none;
+    }
+
 
     @media screen and (max-width: 800px){
         header {

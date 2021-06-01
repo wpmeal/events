@@ -28,7 +28,7 @@ const { checkCredentials, getUserByUsername
     //}
   } catch (e) {
     result = {
-      "name": e.name,
+      "error": e.name,
       "message": e.message
     };
   }
@@ -53,7 +53,7 @@ function getLoginStatus(request, response) {
   }
 }catch(e){
   result = {
-    "name": e.name,
+    "error": e.name,
     "message": e.message
   };
 }
