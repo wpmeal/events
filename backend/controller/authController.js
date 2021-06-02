@@ -1,75 +1,47 @@
-const { nanoid } = require('nanoid');
 const jwt = require('jsonwebtoken');
 
-const { checkCredentials, getUserByUsername
-} = require('../model/operations');
+const { checkCredentials } = require('../model/operations');
 
-// const { comparePassword } = require('../utility/bcrypt');
-
+/* 
+* Login  Controller
+* Params: request, response
+* Return token/error as json 
+*/
  async function login(request, response) {
-  let result = null;
-  try {
 
+  let result = null;
+
+  try {
+    // Reassign the request body  
     const credentials = request.body;
 
+    // Check credentials result
     const credentialsDB = await checkCredentials(credentials); 
-
-    //if(!credentialsDB)
-    //throw new Error("Fel användarnamn/lösenord!");
-
+ 
+    // Log loggedIn user
     console.log('User', credentialsDB.username);
 
+    // Sign loggedIn user using jwt  
     const token = jwt.sign({ id: credentialsDB.id }, 'a1b1c1', {
       expiresIn: 600 //Går ut om 10 minuter 
     });
-
-    //result.success = true;
+    // reassign the token of signed user 
     result = token;
-    //}
+
+    // catch any throwable error from CheckCredentials or jwt.sign 
   } catch (e) {
+  
+    // assign catched error as json obj
     result = {
-      "error": e.name,
+      "error": e.name,      
       "message": e.message
     };
+
   }
+ // return result
   response.json(result);
+
 }
-
-function getLoginStatus(request, response) {
-  let result = false;
-   try {
-  const token = request.header('Authorization').replace('Bearer ', '');
-
-  //let result = { loggedIn: false };
-
-  if (token) {
-    const tokenVerified = jwt.verify(token, 'a1b1c1');
-
-    console.log('JWT Verify:', tokenVerified);
-
-    if (tokenVerified) {
-      result = true;
-    }
-  }
-}catch(e){
-  result = {
-    "error": e.name,
-    "message": e.message
-  };
-}
-
-  response.json(result);
-}
-
-
 
 module.exports.login = login;
-module.exports.getLoginStatus = getLoginStatus;
-// module.exports.createNewAccount = createNewAccount;
 
-
-
-/**
- * jwt.sign() - signerar en token
- * jwt.verify() - veriferar en token
- */
