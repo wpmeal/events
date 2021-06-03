@@ -1,3 +1,8 @@
-# Inlämningsuppgift
+# Events Booking system
+* Powered By Express mvc and JWT
+* By Omar Mahrous | ⓒ June 2021
 
-Figmaskiss: https://www.figma.com/file/GV66ObVWEN62rdaU4MeO6h/Where-its-Copy?node-id=2%3A30
+# Login credentials:
+* username/pass: omar/pwd456
+
+
