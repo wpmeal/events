@@ -1,3 +1,6 @@
+/*
+* A Class to perform the coneection to backend
+*/
 class ConnectionClass {
 
     // let's construct it by setting default values to our api
@@ -24,13 +27,13 @@ class ConnectionClass {
     prepareUrl = () => {
         let url;
         url = this.fetchInfo.baseUrl +
-             this.fetchInfo.endpoint + "/" ;
+            this.fetchInfo.endpoint + "/";
 
         if (this.fetchInfo.paramName)
-            url += this.fetchInfo.paramName  + "/" ;
+            url += this.fetchInfo.paramName + "/";
 
         if (this.fetchInfo.paramValue)
-            url += this.fetchInfo.paramValue  + "/" ;
+            url += this.fetchInfo.paramValue + "/";
 
         return url;
 
@@ -43,12 +46,11 @@ class ConnectionClass {
             "method": this.fetchInfo.method,
             "headers": this.fetchInfo.headers
         }
-        console.log(init);
         // add a body to our request only on POST method otherwise it will throw an exception
         if (this.fetchInfo.method == "POST")
             init.body = JSON.stringify(this.fetchInfo.requestBody);
-         
-       // console.log(this.fetchInfo.requestBody);    
+
+        // console.log(this.fetchInfo.requestBody);    
         // exectute the connection to backedn api 
         const res = await fetch(
             url,

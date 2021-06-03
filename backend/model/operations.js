@@ -93,7 +93,7 @@ function verifyEventBiljett(BiljetNum) {
   // get biljett data from db
   const Biljet = getBiljett(BiljetNum);
   // log it 
-  console.log(Biljet);
+  console.log(Biljet.value());
   // read property of biljett obj that indicates if it has been verified already or not!
    const isVerified = Biljet.get('verify').value();
   

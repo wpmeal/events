@@ -30,7 +30,9 @@ const { checkCredentials } = require('../model/operations');
 
     // catch any throwable error from CheckCredentials or jwt.sign 
   } catch (e) {
-  
+    // log error to server  
+    console.log(e.message);
+
     // assign catched error as json obj
     result = {
       "error": e.name,      

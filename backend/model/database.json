@@ -6,7 +6,7 @@
       "id": "hFGlJMzZTKbBuPJYTAsJH"
     },
     {
-      "username": "Chris",
+      "username": "omar",
       "password": "$2b$10$WjJqHWx1ZukAu7yntZWXPO9PfSl1ZAExZDoxGsaLLAJoPWaOKhMKm",
       "id": "_DW-mZnKlSyhlILuRn-YY"
     }
@@ -15,21 +15,21 @@
     {
       "id": "1",
       "title": "Event 1",
-      "desc": "event desc",
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates neque commodi sit voluptas suscipit, ducimus, quae vitae accusamus, qui recusandae animi ullam aliquam quo aut ipsam iusto quaerat incidunt nulla.",
       "date": "2021-06-22 14:30",
-      "publisher": "John M",
-      "price": 66,
+      "publisher": "Omar Mahrous",
+      "price": 78,
       "currency": "kr",
-      "availableBiljeter": 9,
-      "biljetterKvar": 2
+      "availableBiljeter": 99,
+      "biljetterKvar": 89
     },
     {
       "id": "2",
       "title": "Event 2",
-      "desc": "event desc",
-      "date": "2021-06-22 14:30",
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates neque commodi sit voluptas suscipit, ducimus, quae vitae accusamus, qui recusandae animi ullam aliquam quo aut ipsam iusto quaerat incidunt nulla.",
+      "date": "2021-08-22 13:30",
       "publisher": "John M",
-      "price": 66,
+      "price": 110,
       "currency": "kr",
       "availableBiljeter": 2,
       "biljetterKvar": 0
@@ -37,20 +37,20 @@
     {
       "id": "3",
       "title": "Event 3",
-      "desc": "event desc",
-      "date": "2021-06-22 14:30",
-      "publisher": "John M",
-      "price": 66,
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates neque commodi sit voluptas suscipit, ducimus, quae vitae accusamus, qui recusandae animi ullam aliquam quo aut ipsam iusto quaerat incidunt nulla.",
+      "date": "2021-09-30 20:30",
+      "publisher": "John XX",
+      "price": 56,
       "currency": "kr",
       "availableBiljeter": 77,
-      "biljetterKvar": 52
+      "biljetterKvar": ""
     }
   ],
   "Biljeter": [
     {
       "id": "nHa_tpnGlJiNDnhqIFN83",
       "eventId": "2",
-      "verify": "0"
+      "verify": "1"
     },
     {
       "id": "L0JY6c1C0KBNYM37hqX56",
@@ -60,7 +60,7 @@
     {
       "id": "nNEqRA_Rab3A0nco-Jn59",
       "eventId": "1",
-      "verify": "0"
+      "verify": "1"
     },
     {
       "id": "Eoak3jHKwnzNmGh1d7prd",
@@ -214,6 +214,46 @@
     },
     {
       "id": "ZZtHz4SR9scY4NOVjNjUk",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "zjaQfVfpR4mWbb0A9Us4g",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "QSTKaJYt0rt7AIxTNASgy",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "aCDHfye-tnXsK2tqe9SK_",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "JgHs2imFYhNXjBOrb6g2O",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "fgxjNxFvaXlNTfZ9Ktpxu",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "vnGn_k2BPVfM1cuDfEuGG",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "z-_rr1JjXhEF5WVapMz7Z",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "T623KDjuvgAJExoUt9U3r",
       "eventId": "3",
       "verify": "0"
     }

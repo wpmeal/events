@@ -1,16 +1,28 @@
+/*
+* A Class to process events
+*/
 class Event {
 
   constructor() {
-    //this.initConnection = new connectionClass();
+    // initialize Events dependency: AuthUser class on each new instance of Event Class
     this.authUser = new AuthUser();
 
   }
-  verifyBiljett =  (biljetId) => {
-    const token =  this.authUser.getToken();
+  /*
+  * VerifyBiljett method
+  * params: biljet Id: String
+  * return json response from server 
+  */
+  verifyBiljett = (biljetId) => {
+    // get login token from local storage
+    const token = this.authUser.getToken();
+    // log it
     console.log(token);
+    // reassign it as an obj
     const biljetIdObj = {
       biljetId: biljetId
     }
+    // configure the connection settings
     this.authUser.initConnection.fetchInfo.method = 'POST';
     this.authUser.initConnection.fetchInfo.endpoint = 'event';
     this.authUser.initConnection.fetchInfo.paramName = 'verify';
@@ -19,67 +31,61 @@ class Event {
       'Content-Type': 'application/json'
     };
     this.authUser.initConnection.fetchInfo.requestBody = biljetIdObj;
-    
+
+    // execute the conncetion to backend
     const data = this.authUser.initConnection.connectTopApi();
 
-   // console.log(data);
+    // return server response 
+    return data;
 
-     return data;
-
- 
-    // await saveToken(data.token);
   }
 
-
+  /*
+  * bestallBiljett method
+  * params: event Id: String
+  * return json response from server 
+  */
 
   bestallBiljett = async (eventId) => {
-    //const token = this.authUser.getToken();
-    //const eventId = 1;
-    //console.log(token);
+
+    // configure the connection settings
     this.authUser.initConnection.fetchInfo.method = 'GET';
     this.authUser.initConnection.fetchInfo.endpoint = 'event';
     this.authUser.initConnection.fetchInfo.paramName = 'book';
     this.authUser.initConnection.fetchInfo.paramValue = eventId;
-   /* this.authUser.initConnection.fetchInfo.headers = {
-      'Content-Type': 'application/json'
-    }; */
-    // this.authUser.initConnection.fetchInfo.requestBody = biljetIdObj;
+
+    // execute the conncetion to backend
     const data = await this.authUser.initConnection.connectTopApi();
 
-
+    // return server response 
     return data;
- 
-  
+
+
   }
 
+  /*
+  * renderItem method
+  * receive data array from server then render them as html entities
+  */
 
+  renderItem = (data = '') => {
 
-
-  // verifyBiljett();     
-  // bestallBiljett();
-  // getEvents();
-
-
-  renderItem =  (Data = '', refresh = true) => {
-
-    let container  = document.querySelector("#eventsListContainer");
-
-    // clean the dom
-   // document.querySelector("main").innerHTML = "";
+    // html container to load events entities inside it 
+    let container = document.querySelector("#eventsListContainer");
 
     // check if we have an error response
-    if (Data.error && Data.message) {
-      container.innerHTML = `<b>${Data.message}</b>`;
+    if (data.error && data.message) {
+      container.innerHTML = `<b>${data.message}</b>`;
     }
 
     // otherwise loop through our data array 
-    else Data.forEach(el => {
+    else data.forEach(el => {
 
-        // create an article html obj that will represent each items/product to the client/browser
-        const articleHtmlObj = document.createElement("article");
+      // create an article html obj that will represent each event to the client/browser
+      const articleHtmlObj = document.createElement("article");
 
-    
-      let  innerHtml = `
+      // html article content
+      let innerHtml = `
         <h1>${el.title}</h1>
      
         <p>
@@ -94,45 +100,38 @@ class Event {
         <section>
             <p>${el.biljetterKvar} biljeter Kvar</p>
             <button class="book" onclick="bookEventHandler(${el.id})">
-                Boka for ${el.price} &nbsp;  ${el.currency}
+                Boka for ${el.price} ${el.currency}
             </button>
             <input type="hidden" name="eventId" value="${el.id}" />
         </section>
   `;
 
 
-        // assign html content to our parent article obj
-        articleHtmlObj.innerHTML = innerHtml;
+      // assign inner html content to our parent article obj
+      articleHtmlObj.innerHTML = innerHtml;
 
-        // append each article html item to dom
-        container.appendChild(articleHtmlObj);
+      // append each article html item to dom
+      container.appendChild(articleHtmlObj);
     })
 
-}
-  
-getEvents = async () => {
+  }
+  /*
+  * getEvents method
+  * receive data array from server then execute the rendering mehtod on it
+  */
+  getEvents = async () => {
 
-  this.authUser.initConnection.fetchInfo.method = 'GET';
-  this.authUser.initConnection.fetchInfo.endpoint = 'event';
+    // configure the connection
+    this.authUser.initConnection.fetchInfo.method = 'GET';
+    this.authUser.initConnection.fetchInfo.endpoint = 'event';
 
-  const data = await this.authUser.initConnection.connectTopApi();
-  console.log(data);
-  ///if(result.message){
+    // execute the connection
+    const data = await this.authUser.initConnection.connectTopApi();
 
- // }
- //  else {
-     this.renderItem(data);
+    // call rendering mehtod on the reposnse
+    this.renderItem(data);
 
-  // }
-
-  
-  
-}
+  }
 
 }
 
-const initEvent = new Event();
-//initEvent.authUser.login("Chris","pwd456");
-//initEvent.verifyBiljett("BVEAtKmtr5uliMPhIHEoV");
-// initEvent.bestallBiljett(1);
- // initEvent.getEvents();
