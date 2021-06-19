@@ -6,46 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Staff Sida</title>
+    <title>verify Biljett</title>
 </head>
 
-<body id="staff">
+<body>
     <div class="wrapper">
         <header>
             <div class="menu">
                 <a href="index.html">Events</a>
+                <a href="staff.html">Stuff</a>
             </div>
         </header>
-        <main>
+        <main id="eventsListContainer">
             <section id="result">
             </section>
-        
-            <section id="staffLoginForm">
+            <section id="verifyBiljett">
+                <p>
+                    Verify Biljett:
+                </p>
+                <p>
+                    <input type="text" name="biljettCode" value="" />
+                <p>
+                    <input type="button" name="verify" value="Verify" />
+                </p>
 
-                <form>
-                    <p>Staff Username:
-                        <input type="text" name="username" value="" />
-                    </p>
-                    <p>Staff Passowrd:
-                        <input type="password" name="password" value="" />
-                    </p>
-                    <p>
-                        <input type="button" name="login" value="Login" />
-                    </p>
-
-                </form>
+                </p>
             </section>
-
         </main>
-
     </div>
+    
     <p>By Omar Mahrous | © June 2021</p>
-
 
     <script type="text/javascript" src="connectionClass.js"></script>
     <script type="text/javascript" src="authUserClass.js"></script>
     <script type="text/javascript" src="eventClass.js"></script>
-    <script type="text/javascript" src="staff.js"></script>
+    <script type="text/javascript" src="verifyBiljett.js"></script>
 
 </body>
 </html>

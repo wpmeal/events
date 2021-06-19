@@ -67,6 +67,25 @@ function getAllEvents() {
   return events;
 }
 
+/**
+ * Get single event
+ * @param {*} id: event id
+ * @returns event obj
+ */
+
+function getEvent(id) {
+  
+  const singleEvent = database.get('events').find({ id: id });
+
+  console.log(singleEvent);
+
+  if (!singleEvent.value()) {
+    throw Error('Ingen evenmang hittades');
+  }
+
+  return singleEvent.value();
+}
+
 /*
 * Get biljett from db
 * param: BiljetCode/Num
@@ -253,4 +272,6 @@ exports.verifyEventBiljett = verifyEventBiljett;
 exports.generateBiljett = generateBiljett;
 exports.isBiljetAvailable = isBiljetAvailable;
 exports.getAllEvents = getAllEvents;
+exports.getEvent = getEvent;
+
 exports.numOfBiljetterKvar = numOfBiljetterKvar;
