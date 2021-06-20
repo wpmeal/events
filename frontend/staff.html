@@ -7,9 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Staff Sida</title>
+    <script type="text/javascript" src="connectionClass.js"></script>
+    <script type="text/javascript" src="authUserClass.js"></script>
+    <script type="text/javascript" src="eventClass.js"></script>
+    <script type="text/javascript">
+        // initilize main class only once
+        if (typeof initEvent == "undefined") {
+
+            initEvent = new Event();
+
+        }
+        getToken = async () => {
+            const token = await initEvent.authUser.getToken();
+            if (token) {
+                location.href = 'verifyBiljett.html';
+            }
+        }
+        getToken();
+    </script>
+
 
 
 </head>
+
 <body id="staff">
     <div class="wrapper">
         <header>
@@ -21,7 +41,7 @@
             <h1>Staff Login</h1>
             <section id="result">
             </section>
-        
+
             <section id="staffLoginForm">
 
                 <form>
@@ -43,12 +63,8 @@
     </div>
     <p>By Omar Mahrous | © June 2021</p>
 
-
-
-    <script type="text/javascript" src="connectionClass.js"></script>
-    <script type="text/javascript" src="authUserClass.js"></script>
-    <script type="text/javascript" src="eventClass.js"></script>
     <script type="text/javascript" src="staff.js"></script>
 
 </body>
+
 </html>

@@ -1,29 +1,3 @@
-
-/*
-* A function to hide/show html form
-*params: from Id:string, show:boolean
-*/ 
-
-
-// initilize main class only once
-if (typeof initEvent == "undefined") {
-
-    initEvent = new Event();
-
-}
-getToken = async ()=> { 
-const token = await initEvent.authUser.getToken();
-if(token){
-    location.href = 'verifyBiljett.html';
-}
-}
-getToken();
-// const token = getToken();
-
-//if(getToken()){
- //   location.href = 'verifyBiljett.html';
-//}
-
 let loginButton = document.querySelector("input[name=login]");
 
 // an event listener to login click

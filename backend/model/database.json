@@ -46,7 +46,7 @@
       "price": 56,
       "currency": "kr",
       "availableBiljeter": 77,
-      "biljetterKvar": 42
+      "biljetterKvar": 40
     }
   ],
   "Biljeter": [
@@ -572,6 +572,36 @@
     },
     {
       "id": "ARN-sBRADMwh7015csV5P",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "XscZ5MHcLxOZWOzsOIokb",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "QDOGpVAs2A1PIoYhIiMIX",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "XB8WfylV3o7r0k6rASJDk",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "xWoE11CTQROyMs1vc-5Jk",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "dAEWa4gs52hoLilg1JOEd",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "89OfQQJCRIGbE0eY6kCD7",
       "eventId": "1",
       "verify": "0"
     }
