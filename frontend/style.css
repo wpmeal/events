@@ -2,11 +2,11 @@ body {
     margin: 0;
     height: 100vh;
     width: 100%;
-    background: #fbfbfb;
+    background: #1a144ae0;
     align-items: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1.3rem;
-    color:rgb(66, 65, 65);
+    color:white;
 
 }
 
@@ -20,7 +20,6 @@ body {
 header {
     grid-column: auto / span 1;
    /* padding: 3%; */
-    background: rgb(68 68 68 / 88%);
     padding: 1%;
     
 }
@@ -49,10 +48,9 @@ Main contents of the page
 */
 article {
     grid-column: auto / span 1;
-    padding: 5%;
-    background-color:rgb(68 68 68 / 88%);
+    padding: 2% 20%;
     color:white;
-    margin: 0 5% 5% 0;
+    border-block-end: 1px solid white;
 
 }
 
@@ -113,30 +111,42 @@ margin: 0;
 
     .price {
         float: right;
+        color:#34bdb7;
     }
     article .publisher{
         font-size: 1rem;
     }
 
-    article button{
-        padding: 3%;
-    color:white;
-    background: #ca4646;
-    font-size: 1rem;
-    font-weight: 600;
+ 
+    button {
+        background: #34bdb7;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    a{
+        text-decoration: none;
+        color: blanchedalmond;
     }
     header a {
-        text-decoration: none;
+       
     color: white;
     font-size: 1.7rem;
-    padding: 1%;
+    padding: 1% 5%;
     }
-    header a:hover{
+    
+     a:hover{
         color:#ca4646 ;
     }
 
     .menu{
-       padding: 0 5% 0;
+       padding: 0 20% 0;
     }
 
 
@@ -145,12 +155,12 @@ margin: 0;
         float:left;
         border: 4px solid white ;
         border-radius: 10px;
-        padding: 5%;
+        padding: 7%;
     }
      
     .event-content{
         float:right;
-        width: 80%;
+        width: 72%;
 
     }
 
@@ -162,6 +172,48 @@ margin: 0;
         padding: 1%;
     }
 
+    .ticket{
+        background-color: beige;
+        color: black;
+    }
+.ticket-container{
+    padding: 3% 35%;
+}
+.ticket-content{
+    padding: 1%;
+   
+}
+.ticket-content > * {
+    padding: 3% 0; 
+    border-bottom: 1px dotted black;
+    width: 100%;
+}
+.ticket-content .date > span{
+    border-right: 1px dotted black;
+    padding: 1% 5%;
+}
+h1{
+    margin:0;
+}
+
+#staffLoginForm{
+    padding: 0 30%;
+
+}
+input{
+    padding: 3% 6%;
+
+}
+.button{
+    background-color: #F39440;
+    padding: 3% 6%;
+
+    
+}
+#verifyBiljett{
+    padding: 0 30%;
+
+}
 
 
 
@@ -180,6 +232,12 @@ margin: 0;
       article button{
         font-size: .8rem;
  
+      }
+      .event-date, .event-content{
+          float: none;
+      }
+      .event-details{
+       padding: 0 10%;
       }
     }
 

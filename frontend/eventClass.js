@@ -90,13 +90,14 @@ class Event {
        <div class="event-content"> 
        <h1><a href="buy.html?id=${el.id}">${el.title}</a></h1>
      
-        <p>
-            <span>${el.time}</span>
-        </p>
+      
         <p class="publisher">
         ${el.publisher}
         </p>
-            <p>${el.biljetterKvar} biljeter Kvar <span class="price">${el.price} ${el.currency}</span></p>
+        <p>
+        ${el.biljetterKvar} biljeter Kvar 
+        </p>
+            <p>${el.time} <span class="price">${el.price} ${el.currency}</span></p>
       
         </div>
   `;
@@ -140,18 +141,21 @@ class Event {
             <span>${el.date} ${el.time}</span>
         </p>
         <p class="publisher">
-        @ ${el.publisher}
+        @${el.publisher}
         </p>
         <p>
         ${el.price} ${el.currency}
         </p>
-        <section>
+    
             <p>${el.biljetterKvar} biljeter Kvar </p>
+           <p>
             <a href="ticket.html?eventId=${el.id}"><button class="book">
                 Beställ
             </button></a>
-        </section>
-        </div>
+            </p>
+            </div>
+      
+      
   `;
 
 
@@ -224,23 +228,24 @@ class Event {
 
       // create an article html obj that will represent each event to the client/browser
       const articleHtmlObj = document.createElement("div");
-      articleHtmlObj.className = "event-details";
+      articleHtmlObj.className = "ticket";
 
       // html article content
       let innerHtml = `
-       <p>You are about to score some tickets to</p>
-       <div class="event-content"> 
+       <div class="ticket-content"> 
        <h1>${el.title}</h1>
      
-        <p>
-            <span>${el.date} ${el.time}</span>
+   
+        <p class="publisher"><span>Where</span>
+       </br>
+        ${el.publisher}
+        </br>
+        </br>
         </p>
-        <p class="publisher">
-        @ ${el.publisher}
-        </p>
-        <p>
-        ${el.price} ${el.currency}
-        </p>
+        <p class="date">
+        <span>When: ${el.date} </span><span>Time: ${el.time}</span>
+    </p>
+      
       <p>
       ${ticketCode}
       </p>

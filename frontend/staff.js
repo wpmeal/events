@@ -11,12 +11,18 @@ if (typeof initEvent == "undefined") {
     initEvent = new Event();
 
 }
-
-const token = initEvent.authUser.getToken();
-
+getToken = async ()=> { 
+const token = await initEvent.authUser.getToken();
 if(token){
     location.href = 'verifyBiljett.html';
 }
+}
+getToken();
+// const token = getToken();
+
+//if(getToken()){
+ //   location.href = 'verifyBiljett.html';
+//}
 
 let loginButton = document.querySelector("input[name=login]");
 
