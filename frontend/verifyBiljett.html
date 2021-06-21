@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Events Booker</title>
+    <title>Verify Biljett</title>
 </head>
 
-<body>
+<body id="staff">
     <div class="wrapper">
         <header>
             <div class="menu">
@@ -18,6 +18,20 @@
             </div>
         </header>
         <main id="eventsListContainer">
+            <section id="result">
+            </section>
+            <section id="verifyBiljett">
+                <h1>
+                    Verify Biljett:
+                </h1>
+                <p>
+                    <input type="text" name="biljettCode" value="" />
+                <p>
+                    <input class="button" type="button" name="verify" value="Verify" />
+                </p>
+
+                </p>
+            </section>
         </main>
     </div>
     
@@ -26,7 +40,7 @@
     <script type="text/javascript" src="connectionClass.js"></script>
     <script type="text/javascript" src="authUserClass.js"></script>
     <script type="text/javascript" src="eventClass.js"></script>
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="verifyBiljett.js"></script>
 
 </body>
 </html>

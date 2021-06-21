@@ -1,4 +1,4 @@
-const { isBiljetAvailable,  generateBiljett, getAllEvents, verifyEventBiljett, numOfBiljetterKvar
+const { isBiljetAvailable,  generateBiljett, getAllEvents, verifyEventBiljett, numOfBiljetterKvar, getEvent
      } = require('../model/operations');
 
 /* 
@@ -74,6 +74,47 @@ function getAllEventsCont(request, response) {
    
 }
 
+/**
+ * Get Single Event Controller
+ * @param {*} request 
+ * @param {*} response 
+ */
+function getEventCont(request, response) {
+    let result = null;
+   
+    try { 
+        
+        // get event id from request
+        eventId = request.params.id;
+
+       // console.log(eventId);
+
+        // Get event    
+        result = getEvent(eventId);
+
+      // console.log(result);
+
+         // calculate num of biljetter available     
+        const num = numOfBiljetterKvar(result.id);
+
+        // a new obj property for the number of available biljetter to be returned within the response
+        result.biljetterKvar = num;
+
+       // });
+
+    }catch(e){
+
+        result = {
+            "error": e.name,
+            "message": e.message
+        };
+    }
+
+    response.json(result);
+   
+}
+
+
 /* 
 * Verify Biljett Controller
 * Params: request, response
@@ -104,6 +145,7 @@ function verifyBiljet(request, response) {
 
 module.exports.EventBestallning = EventBestallning;
 module.exports.getAllEventsCont = getAllEventsCont;
+module.exports.getEventCont = getEventCont;
 module.exports.verifyBiljet = verifyBiljet;
 
 
