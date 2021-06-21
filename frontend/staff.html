@@ -17,6 +17,7 @@
             initEvent = new Event();
 
         }
+        // get saved token from browser 's session storage
         getToken = async () => {
             const token = await initEvent.authUser.getToken();
             if (token) {

@@ -124,15 +124,15 @@ class Event {
     }
 
     // otherwise loop through our data array 
-   // else data.forEach(el => {
-     
+    // else data.forEach(el => {
 
-      // create an article html obj that will represent each event to the client/browser
-      const articleHtmlObj = document.createElement("div");
-      articleHtmlObj.className = "event-details";
 
-      // html article content
-      let innerHtml = `
+    // create an article html obj that will represent each event to the client/browser
+    const articleHtmlObj = document.createElement("div");
+    articleHtmlObj.className = "event-details";
+
+    // html article content
+    let innerHtml = `
        <p>You are about to score some tickets to</p>
        <div class="event-content"> 
        <h1>${el.title}</h1>
@@ -159,12 +159,12 @@ class Event {
   `;
 
 
-      // assign inner html content to our parent article obj
-      articleHtmlObj.innerHTML = innerHtml;
+    // assign inner html content to our parent article obj
+    articleHtmlObj.innerHTML = innerHtml;
 
-      // append each article html item to dom
-      container.appendChild(articleHtmlObj);
-    
+    // append each article html item to dom
+    container.appendChild(articleHtmlObj);
+
 
   }
 
@@ -190,7 +190,7 @@ class Event {
   /**
    * Get single event details
    */
-   getSingleEvent = async (eventId) => {
+  getSingleEvent = async (eventId) => {
 
     // configure the connection
     this.authUser.initConnection.fetchInfo.method = 'GET';
@@ -208,11 +208,11 @@ class Event {
     return data;
 
 
- 
+
   }
 
- 
-  renderTicket = (el = '', ticketCode= '') => {
+
+  renderTicket = (el = '', ticketCode = '') => {
 
     // html container to load events entities inside it 
     let container = document.querySelector("#eventsListContainer");
@@ -222,16 +222,12 @@ class Event {
       container.innerHTML = `<b>${data.message}</b>`;
     }
 
-    // otherwise loop through our data array 
-   // else data.forEach(el => {
-     
+    // create an article html obj that will represent each event to the client/browser
+    const articleHtmlObj = document.createElement("div");
+    articleHtmlObj.className = "ticket";
 
-      // create an article html obj that will represent each event to the client/browser
-      const articleHtmlObj = document.createElement("div");
-      articleHtmlObj.className = "ticket";
-
-      // html article content
-      let innerHtml = `
+    // html article content
+    let innerHtml = `
        <div class="ticket-content"> 
        <h1>${el.title}</h1>
      
@@ -246,19 +242,21 @@ class Event {
         <span>When: ${el.date} </span><span>Time: ${el.time}</span>
     </p>
       
-      <p>
+      <p class="barcode">
+      <image src="barcode.png" alt="Ticket Barcode">
+      </br>
       ${ticketCode}
       </p>
         </div>
   `;
 
 
-      // assign inner html content to our parent article obj
-      articleHtmlObj.innerHTML = innerHtml;
+    // assign inner html content to our parent article obj
+    articleHtmlObj.innerHTML = innerHtml;
 
-      // append each article html item to dom
-      container.appendChild(articleHtmlObj);
-    
+    // append each article html item to dom
+    container.appendChild(articleHtmlObj);
+
 
   }
 

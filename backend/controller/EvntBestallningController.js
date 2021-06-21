@@ -97,7 +97,7 @@ function getEventCont(request, response) {
          // calculate num of biljetter available     
         const num = numOfBiljetterKvar(result.id);
 
-        // a new obj property for the number of available biljetter to be returned into the response
+        // a new obj property for the number of available biljetter to be returned within the response
         result.biljetterKvar = num;
 
        // });

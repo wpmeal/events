@@ -18,11 +18,11 @@
       "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates neque commodi sit voluptas suscipit, ducimus, quae vitae accusamus, qui recusandae animi ullam aliquam quo aut ipsam iusto quaerat incidunt nulla.",
       "date": "22 Mar",
       "time": "12.00 - 14:30",
-      "publisher": "Omar Mahrous",
+      "publisher": "Awosome Bio",
       "price": 78,
-      "currency": "kr",
+      "currency": "sek",
       "availableBiljeter": 99,
-      "biljetterKvar": ""
+      "biljetterKvar": 15
     },
     {
       "id": "2",
@@ -30,9 +30,9 @@
       "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates neque commodi sit voluptas suscipit, ducimus, quae vitae accusamus, qui recusandae animi ullam aliquam quo aut ipsam iusto quaerat incidunt nulla.",
       "date": "05 April",
       "time": "14.00 - 16:30",
-      "publisher": "John M",
+      "publisher": "MON Äventyr",
       "price": 110,
-      "currency": "kr",
+      "currency": "sek",
       "availableBiljeter": 2,
       "biljetterKvar": 0
     },
@@ -42,11 +42,11 @@
       "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates neque commodi sit voluptas suscipit, ducimus, quae vitae accusamus, qui recusandae animi ullam aliquam quo aut ipsam iusto quaerat incidunt nulla.",
       "date": "30 June",
       "time": "19.00 - 22:30",
-      "publisher": "John XX",
+      "publisher": "Cruise Away",
       "price": 56,
-      "currency": "kr",
+      "currency": "sek",
       "availableBiljeter": 77,
-      "biljetterKvar": 40
+      "biljetterKvar": ""
     }
   ],
   "Biljeter": [
@@ -83,7 +83,7 @@
     {
       "id": "A-wMq0uGU0pVTQGmnqnbn",
       "eventId": "3",
-      "verify": "0"
+      "verify": "1"
     },
     {
       "id": "fdNxyMcBxA0H8dYTlYsF2",
@@ -603,6 +603,86 @@
     {
       "id": "89OfQQJCRIGbE0eY6kCD7",
       "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "hl74nsw43R4jGiq4am0xC",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "-RnxFvgj6Qd1g5XyT9Tk7",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "p02ZAsRhRexQpeEEcLk-6",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "Rv8ranFvQw9P-fXiV5JCJ",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "HSr-GHUeizmRdmutsbJF0",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "0rtkHyCavmL8RoYgOeoay",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "EnwHda_0ssIyDObE_Ei6O",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "RJK_DAuX0fiUnkMbGxjYR",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "Brbw3ZP-WxBpQ8ez-i9Uo",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "bqiP-8ZsTZCy8VJDoG6Ql",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "fiTlrX1L2kMFThbrdi-DR",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "kzxlYv-L7bcmUSq-8k3Aj",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "cBH4mVAlXbg1LD2WU6QAv",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "hIIt9TrtfZWCGfV6eEVmO",
+      "eventId": "3",
+      "verify": "0"
+    },
+    {
+      "id": "3iDG9wsRhtKvHQH4IY-ge",
+      "eventId": "1",
+      "verify": "0"
+    },
+    {
+      "id": "-4ZaPQ89_SKJu1jBjhLFp",
+      "eventId": "3",
       "verify": "0"
     }
   ]

@@ -273,5 +273,4 @@ exports.generateBiljett = generateBiljett;
 exports.isBiljetAvailable = isBiljetAvailable;
 exports.getAllEvents = getAllEvents;
 exports.getEvent = getEvent;
-
 exports.numOfBiljetterKvar = numOfBiljetterKvar;

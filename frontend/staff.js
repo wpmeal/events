@@ -19,9 +19,6 @@ loginButton.addEventListener("click", async (e) => {
 
         resultDom.innerHTML = '';
 
-      //   displayForm('staffLoginForm', false);
-
-
         // save token received from backed 
         await initEvent.authUser.saveToken(result);
 

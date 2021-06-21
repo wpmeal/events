@@ -7,13 +7,11 @@ if (typeof initEvent == "undefined") {
 
 getEventDetails = async () => {
 
-var eventId = location.search.split('id=')[1];
-// get and render  event details from server
-var eventObj = await initEvent.getSingleEvent(eventId);
+    var eventId = location.search.split('id=')[1];
+    // get and render  event details from server
+    var eventObj = await initEvent.getSingleEvent(eventId);
 
-//console.log(eventObj);
-
-initEvent.renderSingleItem(eventObj);
+    initEvent.renderSingleItem(eventObj);
 
 }
 
