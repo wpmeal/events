@@ -1,4 +1,4 @@
-# Events Booking system
+# Events Booking system v2
 * Powered By Express mvc and JWT
 * By Omar Mahrous | ⓒ June 2021
 
